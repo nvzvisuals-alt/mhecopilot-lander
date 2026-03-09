@@ -1,18 +1,26 @@
 <!DOCTYPE html>
 <html lang="en" class="scroll-smooth">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Forge AI | RAG for Material Handling</title>
-    
+    <title>MHE Copilot | RAG for Material Handling</title>
+
     <!-- Google Fonts for Industrial Look -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Oswald:wght@500;700&display=swap" rel="stylesheet">
-    
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Oswald:wght@500;700&display=swap"
+        rel="stylesheet">
+
     <!-- Tailwind CSS CDN -->
     <script src="https://cdn.tailwindcss.com"></script>
-    
+
+    <!-- AOS CSS -->
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+
+    <!-- Lucide Icons -->
+    <script src="https://unpkg.com/lucide@latest"></script>
+
     <!-- Tailwind Configuration -->
     <script>
         tailwind.config = {
@@ -39,53 +47,126 @@
         }
     </script>
 </head>
+
 <body class="bg-industrial-900 text-gray-300 font-sans antialiased overflow-x-hidden">
 
     <!-- Navbar -->
     <nav class="fixed w-full z-50 bg-industrial-900/90 backdrop-blur-md border-b border-white/10">
         <div class="max-w-7xl mx-auto px-6 h-20 flex items-center justify-between">
             <div class="flex items-center gap-3">
-                <div class="w-8 h-8 bg-industrial-yellow flex items-center justify-center font-display font-bold text-black text-xl">F</div>
-                <span class="font-display font-bold text-2xl tracking-wider text-white uppercase">Forge AI</span>
+                <div
+                    class="w-8 h-8 bg-industrial-yellow flex items-center justify-center font-display font-bold text-black text-lg">
+                    M</div>
+                <span class="font-display font-bold text-2xl tracking-wider text-white uppercase">MHE Copilot</span>
             </div>
             <div class="hidden md:flex items-center gap-8 font-medium">
-                <a href="#problem-solution" class="hover:text-industrial-yellow transition-colors duration-200">The Problem</a>
+                <a href="#problem-solution" class="hover:text-industrial-yellow transition-colors duration-200">The
+                    Problem</a>
                 <a href="#features" class="hover:text-industrial-yellow transition-colors duration-200">Solutions</a>
-                <a href="#contact" class="bg-industrial-yellow text-industrial-900 px-6 py-2.5 font-bold uppercase tracking-wide hover:bg-yellow-400 transition-all duration-200 shadow-[4px_4px_0px_#fff] hover:translate-y-[2px] hover:shadow-[2px_2px_0px_#fff]">Get Demo</a>
+                <a href="#contact"
+                    class="bg-industrial-yellow text-industrial-900 px-6 py-2.5 font-bold uppercase tracking-wide hover:bg-yellow-400 transition-all duration-200 shadow-[4px_4px_0px_#fff] hover:translate-y-[2px] hover:shadow-[2px_2px_0px_#fff]">Get
+                    Demo</a>
             </div>
         </div>
     </nav>
 
     <!-- Hero Section -->
-    <section class="relative pt-32 pb-20 md:pt-48 md:pb-32 px-6 flex items-center justify-center min-h-[90vh]">
-        <div class="absolute inset-0 bg-grid-pattern opacity-50"></div>
-        <!-- Gradient Overlay for Contrast -->
-        <div class="absolute inset-0 bg-gradient-to-b from-transparent to-industrial-900"></div>
+    <section
+        class="relative pt-32 pb-20 md:pt-48 md:pb-32 px-6 flex items-center justify-center min-h-[90vh] overflow-hidden">
+        <div class="absolute inset-0 bg-grid-pattern opacity-30"></div>
+        <!-- Sleek SaaS Radial Glow Overlay -->
+        <div
+            class="absolute inset-0 bg-[radial-gradient(circle_at_30%_40%,_rgba(255,202,40,0.08)_0%,_rgba(18,18,18,1)_70%)]">
+        </div>
 
-        <div class="relative max-w-5xl mx-auto text-center z-10">
-            <div class="inline-block px-4 py-1 border border-industrial-yellow text-industrial-yellow font-display uppercase tracking-widest text-sm mb-6 bg-industrial-yellow/10">
-                Next-Gen RAG Architecture
+        <div class="relative max-w-7xl mx-auto z-10 grid lg:grid-cols-2 gap-12 items-center">
+            <!-- Left Side -->
+            <div class="text-left" data-aos="fade-up">
+                <div
+                    class="inline-block px-4 py-1 border border-industrial-yellow text-industrial-yellow font-display uppercase tracking-widest text-sm mb-6 bg-industrial-yellow/10">
+                    GCP-Backed AI Intelligence
+                </div>
+                <h1
+                    class="font-display font-bold text-5xl md:text-6xl lg:text-7xl xl:text-8xl text-white uppercase leading-[1.1] mb-8 tracking-tight">
+                    Democratize <span
+                        class="text-transparent bg-clip-text bg-gradient-to-r from-industrial-yellow to-industrial-orange">Tribal
+                        Knowledge</span> Instantly
+                </h1>
+                <p class="text-lg md:text-xl text-gray-400 max-w-2xl mb-12 leading-relaxed">
+                    Turn a 6-month junior field tech into a master technician overnight. Bypass 10,000-page proprietary
+                    equipment manuals and securely access exact diagnostic resolutions on any mobile device.
+                </p>
+                <div class="flex flex-col sm:flex-row items-center gap-6">
+                    <a href="#contact"
+                        class="w-full sm:w-auto bg-industrial-yellow text-black px-8 py-4 font-display font-bold uppercase tracking-wider text-lg hover:bg-yellow-400 transition-all shadow-[6px_6px_0px_#ffffff] hover:translate-x-[2px] hover:translate-y-[2px] hover:shadow-[4px_4px_0px_#ffffff] text-center">
+                        Request Deployment ->
+                    </a>
+                    <a href="#features"
+                        class="w-full sm:w-auto px-8 py-4 font-display font-bold uppercase tracking-wider text-lg text-white border-2 border-white/20 hover:border-white transition-all text-center">
+                        View Architecture
+                    </a>
+                </div>
             </div>
-            <h1 class="font-display font-bold text-5xl md:text-7xl lg:text-8xl text-white uppercase leading-[1.1] mb-8 tracking-tight">
-                Synthesize <span class="text-transparent bg-clip-text bg-gradient-to-r from-industrial-yellow to-industrial-orange">Heavy Machinery</span> Intelligence
-            </h1>
-            <p class="text-lg md:text-2xl text-gray-400 max-w-3xl mx-auto mb-12 leading-relaxed">
-                Connect your technical manuals, maintenance logs, and schematics to an AI that speaks warehouse automation. Zero downtime troubleshooting.
-            </p>
-            <div class="flex flex-col sm:flex-row justify-center items-center gap-6">
-                <a href="#contact" class="w-full sm:w-auto bg-industrial-yellow text-black px-8 py-4 font-display font-bold uppercase tracking-wider text-lg hover:bg-yellow-400 transition-all shadow-[6px_6px_0px_#ffffff] hover:translate-x-[2px] hover:translate-y-[2px] hover:shadow-[4px_4px_0px_#ffffff]">
-                    Deploy Locally ->
-                </a>
-                <a href="#features" class="w-full sm:w-auto px-8 py-4 font-display font-bold uppercase tracking-wider text-lg text-white border-2 border-white/20 hover:border-white transition-all">
-                    View Specs
-                </a>
+
+            <!-- Right Side UI Mockup -->
+            <div class="hidden lg:block" data-aos="fade-left" data-aos-delay="200">
+                <div class="bg-industrial-800/50 border border-white/10 p-6 backdrop-blur-sm shadow-2xl relative">
+                    <!-- Glassmorphism Card -->
+                    <div
+                        class="absolute -top-3 -right-3 bg-industrial-yellow text-black font-display font-bold text-xs uppercase px-2 py-1 shadow-md z-20">
+                        Live Sync</div>
+
+                    <div class="space-y-4">
+                        <!-- Step 1 -->
+                        <div class="bg-industrial-900/80 border border-white/5 p-4 flex gap-4 items-center">
+                            <div class="w-10 h-10 bg-white/5 rounded flex-shrink-0 flex items-center justify-center">
+                                <i data-lucide="truck" class="w-5 h-5 text-gray-400"></i>
+                            </div>
+                            <div>
+                                <h4 class="text-white font-display uppercase text-sm tracking-wide">Query Processing
+                                </h4>
+                                <p class="text-gray-500 text-xs mt-1">"Why is Sortation Divert D throwing Error 404?"
+                                </p>
+                            </div>
+                        </div>
+
+                        <!-- Step 2 -->
+                        <div
+                            class="bg-industrial-900/80 border border-white/5 p-4 flex gap-4 items-center border-l-2 border-l-industrial-orange">
+                            <div
+                                class="w-10 h-10 bg-industrial-orange/10 rounded flex-shrink-0 flex items-center justify-center">
+                                <i data-lucide="database" class="w-5 h-5 text-industrial-orange"></i>
+                            </div>
+                            <div>
+                                <h4 class="text-white font-display uppercase text-sm tracking-wide">RAG Retrieval</h4>
+                                <p class="text-gray-400 text-xs mt-1 animate-pulse">Scanning 15,000+ documents...</p>
+                            </div>
+                        </div>
+
+                        <!-- Step 3 -->
+                        <div
+                            class="bg-industrial-900/80 border border-white/5 p-4 flex gap-4 items-center border-l-2 border-l-green-500">
+                            <div
+                                class="w-10 h-10 bg-green-500/10 rounded flex-shrink-0 flex items-center justify-center">
+                                <i data-lucide="check-circle" class="w-5 h-5 text-green-500"></i>
+                            </div>
+                            <div>
+                                <h4 class="text-white font-display uppercase text-sm tracking-wide">Response Generated
+                                </h4>
+                                <p class="text-gray-500 text-xs mt-1 truncate max-w-[250px]">Divert D actuator seized.
+                                    Replace part #88-X2...</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
             </div>
         </div>
     </section>
 
     <!-- Statistics/Ticker -->
     <div class="border-y border-white/10 bg-industrial-800 py-6 overflow-hidden flex whitespace-nowrap">
-        <div class="animate-[slide_30s_linear_infinite] flex gap-16 font-display uppercase font-bold text-gray-500 tracking-widest">
+        <div
+            class="animate-[slide_30s_linear_infinite] flex gap-16 font-display uppercase font-bold text-gray-500 tracking-widest">
             <span>// 99.9% Uptime Analytics</span>
             <span>// Integrates with SAP & Oracle</span>
             <span>// SOC2 Type II Certified</span>
@@ -101,8 +182,13 @@
     </div>
     <style>
         @keyframes slide {
-            from { transform: translateX(0); }
-            to { transform: translateX(-50%); }
+            from {
+                transform: translateX(0);
+            }
+
+            to {
+                transform: translateX(-50%);
+            }
         }
     </style>
 
@@ -110,42 +196,68 @@
     <section id="problem-solution" class="py-24 px-6 max-w-7xl mx-auto">
         <div class="grid md:grid-cols-2 gap-16 items-center">
             <!-- Problem -->
-            <div class="space-y-8">
+            <div class="space-y-8" data-aos="fade-up">
                 <div class="w-16 h-1 bg-red-600"></div>
-                <h2 class="font-display text-4xl text-white uppercase tracking-wide">The Status Quo is Broken</h2>
+                <h2 class="font-display text-4xl text-white uppercase tracking-wide">Operational Reality</h2>
                 <div class="space-y-6">
                     <div class="flex items-start gap-4">
                         <div class="mt-1 text-red-500 font-bold font-display text-xl">01</div>
-                        <p class="text-gray-400"><strong class="text-white block mb-1">Trapped Knowledge</strong> 10,000-page OEM manuals and fragmented PDF schematics mean technicians waste hours finding the right diagnostic code.</p>
+                        <p class="text-gray-400"><strong class="text-white block mb-1">The Experience Gap</strong>
+                            Junior techs spend more time hunting through disjointed OEM PDFs for obscure diagnostic
+                            codes than actually turning wrenches. The knowledge lies with retiring senior staff.</p>
                     </div>
                     <div class="flex items-start gap-4">
                         <div class="mt-1 text-red-500 font-bold font-display text-xl">02</div>
-                        <p class="text-gray-400"><strong class="text-white block mb-1">Expensive Downtime</strong> When a sortation system fails, every minute of search costs thousands in delayed logistics SLA penalties.</p>
+                        <p class="text-gray-400"><strong class="text-white block mb-1">Hardware Lock-In</strong>
+                            Critical documentation is trapped on heavily restricted, company-issued rugged laptops. If a
+                            field tech forgets the device or it loses battery, they are completely stranded on the
+                            floor.</p>
+                    </div>
+                    <div class="flex items-start gap-4">
+                        <div class="mt-1 text-red-500 font-bold font-display text-xl">03</div>
+                        <p class="text-gray-400"><strong class="text-white block mb-1">Proprietary IP Risk</strong>
+                            Handing raw, unencrypted equipment PDFs over to employees exposes your organization to
+                            massive intellectual property leaks if they leave to join a competitor.</p>
                     </div>
                 </div>
             </div>
 
             <!-- Solution -->
-            <div class="bg-industrial-800 p-8 border border-white/10 border-l-4 border-l-industrial-yellow relative">
-                <div class="absolute -top-4 -right-4 bg-industrial-900 border border-white/10 text-industrial-yellow font-display text-sm uppercase px-3 py-1">System Override</div>
-                <h3 class="font-display text-3xl text-white uppercase mb-6">The Forge AI Solution</h3>
+            <div class="bg-industrial-800 p-8 border border-white/10 border-l-4 border-l-industrial-yellow relative"
+                data-aos="fade-up" data-aos-delay="200">
+                <div
+                    class="absolute -top-4 -right-4 bg-industrial-900 border border-white/10 text-industrial-yellow font-display text-sm uppercase px-3 py-1">
+                    Secure Enclave</div>
+                <h3 class="font-display text-3xl text-white uppercase mb-6">The Mobile-First RAG Solution</h3>
                 <p class="text-gray-400 mb-6 line-clamp-4 hover:line-clamp-none transition-all">
-                    We deploy custom Retrieval-Augmented Generation (RAG) pipelines directly to your industrial network. 
-                    The model indexes your exact equipment manifests, error codes, and historical maintenance logs. 
-                    Technicians chat directly with your entire fleet's collective knowledge base, receiving exact part numbers and step-by-step repair guides instantaneously.
+                    We deploy a sophisticated WebUI protected by 2-wall authentication. Field technicians get instant,
+                    natural-language answers directly on their personal or corporate smartphones. The underlying IP
+                    remains entirely sanitized and never leaves the secure boundaries of your GCP bucket.
                 </p>
                 <ul class="space-y-3 font-medium text-white">
                     <li class="flex items-center gap-3">
-                        <svg class="w-5 h-5 text-industrial-yellow" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="square" stroke-linejoin="miter" stroke-width="2" d="M5 13l4 4L19 7"></path></svg>
-                        Sub-second query retrieval
+                        <svg class="w-5 h-5 text-industrial-yellow" fill="none" stroke="currentColor"
+                            viewBox="0 0 24 24">
+                            <path stroke-linecap="square" stroke-linejoin="miter" stroke-width="2" d="M5 13l4 4L19 7">
+                            </path>
+                        </svg>
+                        Instant querying from any browser
                     </li>
                     <li class="flex items-center gap-3">
-                        <svg class="w-5 h-5 text-industrial-yellow" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="square" stroke-linejoin="miter" stroke-width="2" d="M5 13l4 4L19 7"></path></svg>
-                        Hallucination-free contextual grounding
+                        <svg class="w-5 h-5 text-industrial-yellow" fill="none" stroke="currentColor"
+                            viewBox="0 0 24 24">
+                            <path stroke-linecap="square" stroke-linejoin="miter" stroke-width="2" d="M5 13l4 4L19 7">
+                            </path>
+                        </svg>
+                        Zero data exfiltration risk
                     </li>
                     <li class="flex items-center gap-3">
-                        <svg class="w-5 h-5 text-industrial-yellow" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="square" stroke-linejoin="miter" stroke-width="2" d="M5 13l4 4L19 7"></path></svg>
-                        100% On-premise capable
+                        <svg class="w-5 h-5 text-industrial-yellow" fill="none" stroke="currentColor"
+                            viewBox="0 0 24 24">
+                            <path stroke-linecap="square" stroke-linejoin="miter" stroke-width="2" d="M5 13l4 4L19 7">
+                            </path>
+                        </svg>
+                        2-Wall authentication enforcement
                     </li>
                 </ul>
             </div>
@@ -154,42 +266,100 @@
 
     <!-- Features Grid -->
     <section id="features" class="py-24 px-6 bg-industrial-800 border-y border-white/5 relative overflow-hidden">
-        <div class="absolute top-0 right-0 w-[800px] h-[800px] bg-industrial-yellow/5 rounded-full blur-[100px] -translate-y-1/2 translate-x-1/3"></div>
+        <div
+            class="absolute top-0 right-0 w-[800px] h-[800px] bg-industrial-yellow/5 rounded-full blur-[100px] -translate-y-1/2 translate-x-1/3">
+        </div>
         <div class="max-w-7xl mx-auto relative z-10">
             <div class="mb-16">
-                <h2 class="font-display text-4xl md:text-5xl text-white uppercase tracking-wide mb-4">Technical Specifications</h2>
-                <p class="text-gray-400 max-w-2xl text-lg">Industrial-grade AI capabilities designed specifically for the rigorous demands of supply chain environments.</p>
+                <h2 class="font-display text-4xl md:text-5xl text-white uppercase tracking-wide mb-4">Technical
+                    Specifications</h2>
+                <p class="text-gray-400 max-w-2xl text-lg">Industrial-grade AI capabilities designed specifically for
+                    the rigorous demands of supply chain environments.</p>
             </div>
 
             <div class="grid md:grid-cols-3 gap-6">
                 <!-- Feature 1 -->
-                <div class="bg-industrial-900 border border-white/5 p-8 hover:border-industrial-yellow/50 transition-colors group">
-                    <div class="w-12 h-12 bg-white/5 rounded flex items-center justify-center mb-6 group-hover:bg-industrial-yellow/10 transition-colors">
-                        <svg class="w-6 h-6 text-industrial-yellow" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="square" stroke-linejoin="miter" stroke-width="2" d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"></path></svg>
+                <div data-aos="fade-up" data-aos-delay="0"
+                    class="bg-industrial-900 border border-white/5 p-8 hover:border-industrial-yellow/50 transition-colors group">
+                    <div
+                        class="w-12 h-12 bg-white/5 rounded flex items-center justify-center mb-6 group-hover:bg-industrial-yellow/10 transition-colors">
+                        <i data-lucide="scan-text" class="w-6 h-6 text-industrial-yellow"></i>
                     </div>
-                    <h3 class="text-xl text-white font-bold mb-3 uppercase font-display tracking-wide">Multi-Modal Parsing</h3>
+                    <h3 class="text-xl text-white font-bold mb-3 uppercase font-display tracking-wide">GCP Tenant
+                        Isolation</h3>
                     <p class="text-gray-500 text-sm leading-relaxed">
-                        Injest scanned PDFs, wiring schematics, CAD data, and legacy mainframe outputs. Our OCR pipeline extracts text from complex tables and diagrams flawlessly.
+                        Every enterprise client is provisioned a completely dedicated Google Cloud bucket and vector
+                        data store. We guarantee zero cross-contamination of your proprietary schematics.
                     </p>
                 </div>
                 <!-- Feature 2 -->
-                <div class="bg-industrial-900 border border-white/5 p-8 hover:border-industrial-yellow/50 transition-colors group">
-                    <div class="w-12 h-12 bg-white/5 rounded flex items-center justify-center mb-6 group-hover:bg-industrial-yellow/10 transition-colors">
-                        <svg class="w-6 h-6 text-industrial-yellow" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="square" stroke-linejoin="miter" stroke-width="2" d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z"></path></svg>
+                <div data-aos="fade-up" data-aos-delay="100"
+                    class="bg-industrial-900 border border-white/5 p-8 hover:border-industrial-yellow/50 transition-colors group">
+                    <div
+                        class="w-12 h-12 bg-white/5 rounded flex items-center justify-center mb-6 group-hover:bg-industrial-yellow/10 transition-colors">
+                        <i data-lucide="shield-check" class="w-6 h-6 text-industrial-yellow"></i>
                     </div>
-                    <h3 class="text-xl text-white font-bold mb-3 uppercase font-display tracking-wide">Secure Enclave Deployment</h3>
+                    <h3 class="text-xl text-white font-bold mb-3 uppercase font-display tracking-wide">Tribal Knowledge
+                        Ingestion</h3>
                     <p class="text-gray-500 text-sm leading-relaxed">
-                        Never leak proprietary machine specs to public LLMs. We deploy within your secure AWS/Azure VPC or entirely air-gapped on edge hardware.
+                        We don't limit indexing to OEM PDFs. We ingest digitized repair logs and handwritten notes from
+                        senior technicians, immortalizing their expertise to train new hires.
                     </p>
                 </div>
                 <!-- Feature 3 -->
-                <div class="bg-industrial-900 border border-white/5 p-8 hover:border-industrial-yellow/50 transition-colors group">
-                    <div class="w-12 h-12 bg-white/5 rounded flex items-center justify-center mb-6 group-hover:bg-industrial-yellow/10 transition-colors">
-                        <svg class="w-6 h-6 text-industrial-yellow" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="square" stroke-linejoin="miter" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z"></path></svg>
+                <div data-aos="fade-up" data-aos-delay="200"
+                    class="bg-industrial-900 border border-white/5 p-8 hover:border-industrial-yellow/50 transition-colors group">
+                    <div
+                        class="w-12 h-12 bg-white/5 rounded flex items-center justify-center mb-6 group-hover:bg-industrial-yellow/10 transition-colors">
+                        <i data-lucide="activity" class="w-6 h-6 text-industrial-yellow"></i>
                     </div>
-                    <h3 class="text-xl text-white font-bold mb-3 uppercase font-display tracking-wide">IoT Telemetry Integration</h3>
+                    <h3 class="text-xl text-white font-bold mb-3 uppercase font-display tracking-wide">Device-Agnostic
+                        WebUI</h3>
                     <p class="text-gray-500 text-sm leading-relaxed">
-                        Connect live sensor data via MQTT. The RAG system contrasts real-time temperature/vibration anomalies against historical failure thresholds instantly.
+                        Say goodbye to missing ruggedized tablets. Strict 2FA access controls enforce a secure,
+                        mobile-friendly interface on any iOS or Android device right on the warehouse floor.
+                    </p>
+                </div>
+                <!-- Feature 4 -->
+                <div data-aos="fade-up" data-aos-delay="300"
+                    class="bg-industrial-900 border border-white/5 p-8 hover:border-industrial-yellow/50 transition-colors group">
+                    <div
+                        class="w-12 h-12 bg-white/5 rounded flex items-center justify-center mb-6 group-hover:bg-industrial-yellow/10 transition-colors">
+                        <i data-lucide="settings" class="w-6 h-6 text-industrial-yellow"></i>
+                    </div>
+                    <h3 class="text-xl text-white font-bold mb-3 uppercase font-display tracking-wide">Automated
+                        Sanitization</h3>
+                    <p class="text-gray-500 text-sm leading-relaxed">
+                        We manage the entire data pipeline edge-to-edge. Unstructured legacy data is cleaned, formatted
+                        naturally, and pre-processed thoroughly before touching the retrieval model.
+                    </p>
+                </div>
+                <!-- Feature 5 -->
+                <div data-aos="fade-up" data-aos-delay="400"
+                    class="bg-industrial-900 border border-white/5 p-8 hover:border-industrial-yellow/50 transition-colors group">
+                    <div
+                        class="w-12 h-12 bg-white/5 rounded flex items-center justify-center mb-6 group-hover:bg-industrial-yellow/10 transition-colors">
+                        <i data-lucide="cpu" class="w-6 h-6 text-industrial-yellow"></i>
+                    </div>
+                    <h3 class="text-xl text-white font-bold mb-3 uppercase font-display tracking-wide">Beyond the
+                        Warehouse</h3>
+                    <p class="text-gray-500 text-sm leading-relaxed">
+                        RAG scales beyond MHE. Deploy separate indices for Human Resources and Administration, allowing
+                        staff to query dense company SOPs instantly without messaging HQ.
+                    </p>
+                </div>
+                <!-- Feature 6 -->
+                <div data-aos="fade-up" data-aos-delay="500"
+                    class="bg-industrial-900 border border-white/5 p-8 hover:border-industrial-yellow/50 transition-colors group">
+                    <div
+                        class="w-12 h-12 bg-white/5 rounded flex items-center justify-center mb-6 group-hover:bg-industrial-yellow/10 transition-colors">
+                        <i data-lucide="git-merge" class="w-6 h-6 text-industrial-yellow"></i>
+                    </div>
+                    <h3 class="text-xl text-white font-bold mb-3 uppercase font-display tracking-wide">Parts Catalog
+                        Integration</h3>
+                    <p class="text-gray-500 text-sm leading-relaxed">
+                        Direct pipeline integration sets the structural foundation for instant parts cross-referencing
+                        and autonomous reordering schemas based directly on diagnostic outputs.
                     </p>
                 </div>
             </div>
@@ -201,30 +371,45 @@
         <div class="bg-industrial-900 border border-white/10 p-1 md:p-2 shadow-2xl">
             <div class="bg-industrial-800 p-8 md:p-14 border border-white/5">
                 <div class="text-center mb-12">
-                    <h2 class="font-display text-4xl text-white uppercase tracking-wide mb-4">Initialize Deployment Sequence</h2>
-                    <p class="text-gray-400">Request a capability briefing and technical demo using your own manuals.</p>
+                    <h2 class="font-display text-4xl text-white uppercase tracking-wide mb-4">Initialize Deployment
+                        Sequence</h2>
+                    <p class="text-gray-400">Request a capability briefing and technical demo using your own manuals.
+                    </p>
                 </div>
-                
-                <form class="space-y-6 max-w-2xl mx-auto" onsubmit="event.preventDefault(); alert('Demo request submitted.');">
+
+                <form class="space-y-6 max-w-2xl mx-auto" action="https://formsubmit.co/sales@mhecopilot.com"
+                    method="POST">
+                    <input type="hidden" name="_subject" value="New MHE Copilot Demo Request!">
                     <div class="grid md:grid-cols-2 gap-6">
                         <div class="space-y-2">
-                            <label class="block text-xs font-bold uppercase tracking-widest text-gray-400">First Name</label>
-                            <input type="text" required class="w-full bg-industrial-900 border border-white/10 px-4 py-3 text-white focus:outline-none focus:border-industrial-yellow transition-colors placeholder-gray-700" placeholder="John">
+                            <label class="block text-xs font-bold uppercase tracking-widest text-gray-400">Full
+                                Name</label>
+                            <input type="text" name="full_name" required
+                                class="w-full bg-industrial-900 border border-white/10 px-4 py-3 text-white focus:outline-none focus:border-industrial-yellow transition-colors placeholder-gray-700"
+                                placeholder="John Doe">
                         </div>
                         <div class="space-y-2">
-                            <label class="block text-xs font-bold uppercase tracking-widest text-gray-400">Last Name</label>
-                            <input type="text" required class="w-full bg-industrial-900 border border-white/10 px-4 py-3 text-white focus:outline-none focus:border-industrial-yellow transition-colors placeholder-gray-700" placeholder="Doe">
+                            <label class="block text-xs font-bold uppercase tracking-widest text-gray-400">Company
+                                Name</label>
+                            <input type="text" name="company_name" required
+                                class="w-full bg-industrial-900 border border-white/10 px-4 py-3 text-white focus:outline-none focus:border-industrial-yellow transition-colors placeholder-gray-700"
+                                placeholder="Logistics Corp">
                         </div>
-                    </div>
-                    
-                    <div class="space-y-2">
-                        <label class="block text-xs font-bold uppercase tracking-widest text-gray-400">Work Email</label>
-                        <input type="email" required class="w-full bg-industrial-900 border border-white/10 px-4 py-3 text-white focus:outline-none focus:border-industrial-yellow transition-colors placeholder-gray-700" placeholder="john.doe@logistics-corp.com">
                     </div>
 
                     <div class="space-y-2">
-                        <label class="block text-xs font-bold uppercase tracking-widest text-gray-400">Equipment Focus</label>
-                        <select class="w-full bg-industrial-900 border border-white/10 px-4 py-3 text-white focus:outline-none focus:border-industrial-yellow transition-colors appearance-none rounded-none">
+                        <label class="block text-xs font-bold uppercase tracking-widest text-gray-400">Work
+                            Email</label>
+                        <input type="email" name="email" required
+                            class="w-full bg-industrial-900 border border-white/10 px-4 py-3 text-white focus:outline-none focus:border-industrial-yellow transition-colors placeholder-gray-700"
+                            placeholder="john.doe@logistics-corp.com">
+                    </div>
+
+                    <div class="space-y-2">
+                        <label class="block text-xs font-bold uppercase tracking-widest text-gray-400">Equipment
+                            Focus</label>
+                        <select name="equipment_focus"
+                            class="w-full bg-industrial-900 border border-white/10 px-4 py-3 text-white focus:outline-none focus:border-industrial-yellow transition-colors appearance-none rounded-none">
                             <option>Warehouse Robotics (AMR/AGV)</option>
                             <option>Conveyor / Sortation Systems</option>
                             <option>Forklifts & Material Handlers</option>
@@ -234,11 +419,12 @@
                     </div>
 
                     <div class="pt-4">
-                        <button type="submit" class="w-full bg-white text-black py-4 font-display font-bold text-xl uppercase tracking-wider hover:bg-industrial-yellow transition-colors shadow-[6px_6px_0px_rgba(255,255,255,0.1)] hover:shadow-none hover:translate-x-[2px] hover:translate-y-[2px]">
+                        <button type="submit"
+                            class="w-full bg-white text-black py-4 font-display font-bold text-xl uppercase tracking-wider hover:bg-industrial-yellow transition-colors shadow-[6px_6px_0px_rgba(255,255,255,0.1)] hover:shadow-none hover:translate-x-[2px] hover:translate-y-[2px]">
                             Request Access
                         </button>
                     </div>
-                    
+
                     <p class="text-center text-xs text-gray-600 uppercase tracking-widest mt-6">
                         Strictly B2B. We protect your operational IP.
                     </p>
@@ -251,11 +437,15 @@
     <footer class="border-t border-white/10 py-12 px-6">
         <div class="max-w-7xl mx-auto flex flex-col md:flex-row justify-between items-center gap-6">
             <div class="flex items-center gap-3">
-                <div class="w-6 h-6 bg-industrial-yellow flex items-center justify-center font-display font-bold text-black text-sm">F</div>
-                <span class="font-display font-bold text-xl tracking-wider text-white uppercase">Forge AI</span>
+                <div
+                    class="w-6 h-6 bg-industrial-yellow flex items-center justify-center font-display font-bold text-black text-sm">
+                    M</div>
+                <span class="font-display font-bold text-xl tracking-wider text-white uppercase">MHE Copilot</span>
             </div>
             <div class="text-sm font-medium text-gray-500">
-                &copy; <script>document.write(new Date().getFullYear())</script> Forge AI Logistics Systems. All rights reserved.
+                &copy;
+                <script>document.write(new Date().getFullYear())</script> MHE Copilot Logistics Systems. All rights
+                reserved.
             </div>
             <div class="flex gap-6 text-sm font-medium">
                 <a href="#" class="text-gray-500 hover:text-white transition-colors">Privacy</a>
@@ -265,5 +455,19 @@
         </div>
     </footer>
 
+    <!-- AOS JS & Init -->
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script>
+        // Initialize AOS
+        AOS.init({
+            duration: 800,
+            once: true,
+            offset: 100,
+        });
+
+        // Initialize Lucide Icons
+        lucide.createIcons();
+    </script>
 </body>
+
 </html>
