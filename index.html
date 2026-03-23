@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>MHE Copilot | RAG for Material Handling</title>
+    <title>MHE Copilot | Service Knowledge System</title>
 
     <!-- Google Fonts for Industrial Look -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -35,8 +35,9 @@
                             900: '#121212', // Deep near-black
                             800: '#1A1A1A', // Dark metal
                             700: '#2A2A2A', // Gunmetal
-                            yellow: '#FFCA28', // Safety yellow
+                            yellow: '#FFCA28', // Safety yellow / Amber
                             orange: '#F57C00', // Warning orange
+                            red: '#E31837', // Raymond-Red Focus
                         }
                     },
                     backgroundImage: {
@@ -46,6 +47,11 @@
             }
         }
     </script>
+    <style>
+        details>summary::-webkit-details-marker {
+            display: none;
+        }
+    </style>
 </head>
 
 <body class="bg-industrial-900 text-gray-300 font-sans antialiased overflow-x-hidden">
@@ -55,365 +61,711 @@
         <div class="max-w-7xl mx-auto px-6 h-20 flex items-center justify-between">
             <div class="flex items-center gap-3">
                 <div
-                    class="w-8 h-8 bg-industrial-yellow flex items-center justify-center font-display font-bold text-black text-lg">
+                    class="w-8 h-8 bg-industrial-red flex items-center justify-center font-display font-bold text-white text-lg rounded-sm">
                     M</div>
                 <span class="font-display font-bold text-2xl tracking-wider text-white uppercase">MHE Copilot</span>
             </div>
             <div class="hidden md:flex items-center gap-8 font-medium">
-                <a href="#problem-solution" class="hover:text-industrial-yellow transition-colors duration-200">The
-                    Problem</a>
-                <a href="#features" class="hover:text-industrial-yellow transition-colors duration-200">Solutions</a>
-                <a href="#contact"
-                    class="bg-industrial-yellow text-industrial-900 px-6 py-2.5 font-bold uppercase tracking-wide hover:bg-yellow-400 transition-all duration-200 shadow-[4px_4px_0px_#fff] hover:translate-y-[2px] hover:shadow-[2px_2px_0px_#fff]">Get
+                <a href="#how" class="hover:text-industrial-red transition-colors duration-200">How It Works</a>
+                <a href="#usecases" class="hover:text-industrial-red transition-colors duration-200">Workflows</a>
+                <a href="#demo"
+                    class="bg-industrial-red text-white px-6 py-2.5 font-bold uppercase tracking-wide hover:bg-red-700 transition-all duration-200 shadow-[4px_4px_0px_rgba(255,255,255,0.2)] hover:translate-y-[2px] hover:shadow-[2px_2px_0px_rgba(255,255,255,0.2)]">Request
                     Demo</a>
             </div>
         </div>
     </nav>
 
-    <!-- Hero Section -->
+    <!-- Section 1: HERO -->
     <section
-        class="relative pt-32 pb-20 md:pt-48 md:pb-32 px-6 flex items-center justify-center min-h-[90vh] overflow-hidden">
+        class="relative pt-40 pb-24 md:pt-48 md:pb-32 px-6 flex items-center justify-center min-h-[95vh] overflow-hidden">
         <div class="absolute inset-0 bg-grid-pattern opacity-30"></div>
-        <!-- Sleek SaaS Radial Glow Overlay -->
         <div
-            class="absolute inset-0 bg-[radial-gradient(circle_at_30%_40%,_rgba(255,202,40,0.08)_0%,_rgba(18,18,18,1)_70%)]">
+            class="absolute inset-0 bg-[radial-gradient(circle_at_30%_40%,_rgba(227,24,55,0.08)_0%,_rgba(18,18,18,1)_70%)]">
         </div>
 
-        <div class="relative max-w-7xl mx-auto z-10 grid lg:grid-cols-2 gap-12 items-center">
+        <div class="relative max-w-7xl mx-auto z-10 grid xl:grid-cols-2 gap-12 items-center">
             <!-- Left Side -->
-            <div class="text-left" data-aos="fade-up">
-                <div
-                    class="inline-block px-4 py-1 border border-industrial-yellow text-industrial-yellow font-display uppercase tracking-widest text-sm mb-6 bg-industrial-yellow/10">
-                    GCP-Backed AI Intelligence
-                </div>
+            <div class="text-left" data-aos="fade-right">
                 <h1
-                    class="font-display font-bold text-5xl md:text-6xl lg:text-7xl xl:text-8xl text-white uppercase leading-[1.1] mb-8 tracking-tight">
-                    UNLOCK <span
-                        class="whitespace-nowrap text-transparent bg-clip-text bg-gradient-to-r from-industrial-yellow to-industrial-orange">SENIOR
-                        TECH<br>KNOWLEDGE</span> INSTANTLY
+                    class="font-display font-bold text-5xl md:text-6xl lg:text-7xl text-white uppercase leading-[1.1] mb-6 tracking-tight">
+                    Your Best Technicians Shouldn’t Be <span class="text-industrial-red">Your Database.</span>
                 </h1>
-                <p class="text-lg md:text-xl text-gray-400 max-w-2xl mb-12 leading-relaxed">
-                    Turn a 6-month junior field tech into a master technician overnight. Bypass navigating through
-                    1000-page proprietary equipment manuals and securely retrieve exact diagnostic answers on any
-                    device.
+                <p
+                    class="text-lg md:text-xl text-gray-400 max-w-2xl mb-10 leading-relaxed border-l-4 border-industrial-yellow pl-4">
+                    MHE Copilot centralizes manuals, SOPs, troubleshooting notes, and senior technician know-how into
+                    one secure, mobile-ready system—so knowledge stays inside the company and new hires get productive
+                    faster.
                 </p>
-                <div class="flex flex-col sm:flex-row items-center gap-6">
-                    <a href="#contact"
-                        class="w-full sm:w-auto bg-industrial-yellow text-black px-8 py-4 font-display font-bold uppercase tracking-wider text-lg hover:bg-yellow-400 transition-all shadow-[6px_6px_0px_#ffffff] hover:translate-x-[2px] hover:translate-y-[2px] hover:shadow-[4px_4px_0px_#ffffff] text-center">
-                        Request Demo ->
+                <div class="flex flex-col sm:flex-row items-center gap-6 mb-8">
+                    <a href="#demo"
+                        class="w-full sm:w-auto bg-industrial-red text-white px-8 py-4 font-display font-bold uppercase tracking-wider text-lg hover:bg-red-700 transition-all shadow-[6px_6px_0px_#ffffff] hover:translate-x-[2px] hover:translate-y-[2px] hover:shadow-[4px_4px_0px_#ffffff] text-center">
+                        Request Demo
                     </a>
-                    <a href="#features"
-                        class="w-full sm:w-auto px-8 py-4 font-display font-bold uppercase tracking-wider text-lg text-white border-2 border-white/20 hover:border-white transition-all text-center">
-                        How It Works
+                    <a href="#usecases"
+                        class="w-full sm:w-auto px-8 py-4 font-display font-bold uppercase tracking-wider text-lg text-white border-2 border-white/20 hover:border-industrial-yellow transition-all text-center">
+                        See Technician Workflow
                     </a>
                 </div>
-            </div>
-
-            <!-- Right Side UI Mockup -->
-            <div class="hidden lg:block" data-aos="fade-left" data-aos-delay="200">
-                <div class="bg-industrial-800/50 border border-white/10 p-6 backdrop-blur-sm shadow-2xl relative">
-                    <!-- Glassmorphism Card -->
-                    <div
-                        class="absolute -top-3 -right-3 bg-industrial-yellow text-black font-display font-bold text-xs uppercase px-2 py-1 shadow-md z-20">
-                        Live Sync</div>
-
-                    <div class="space-y-4">
-                        <!-- Step 1 -->
-                        <div class="bg-industrial-900/80 border border-white/5 p-4 flex gap-4 items-center">
-                            <div class="w-10 h-10 bg-white/5 rounded flex-shrink-0 flex items-center justify-center">
-                                <i data-lucide="truck" class="w-5 h-5 text-gray-400"></i>
-                            </div>
-                            <div>
-                                <h4 class="text-white font-display uppercase text-sm tracking-wide">Query Processing
-                                </h4>
-                                <p class="text-gray-500 text-xs mt-1">"What is Code 6YU on a 5700 Conveyor?"
-                                </p>
-                            </div>
-                        </div>
-
-                        <!-- Step 2 -->
-                        <div
-                            class="bg-industrial-900/80 border border-white/5 p-4 flex gap-4 items-center border-l-2 border-l-industrial-orange">
-                            <div
-                                class="w-10 h-10 bg-industrial-orange/10 rounded flex-shrink-0 flex items-center justify-center">
-                                <i data-lucide="database" class="w-5 h-5 text-industrial-orange"></i>
-                            </div>
-                            <div>
-                                <h4 class="text-white font-display uppercase text-sm tracking-wide">AI Retrieval</h4>
-                                <p class="text-gray-400 text-xs mt-1 animate-pulse">Scanning 15,000+ documents...</p>
-                            </div>
-                        </div>
-
-                        <!-- Step 3 -->
-                        <div
-                            class="bg-industrial-900/80 border border-white/5 p-4 flex gap-4 items-center border-l-2 border-l-green-500">
-                            <div
-                                class="w-10 h-10 bg-green-500/10 rounded flex-shrink-0 flex items-center justify-center">
-                                <i data-lucide="check-circle" class="w-5 h-5 text-green-500"></i>
-                            </div>
-                            <div>
-                                <h4 class="text-white font-display uppercase text-sm tracking-wide">Response Generated
-                                </h4>
-                                <p class="text-gray-500 text-xs mt-1 truncate max-w-[250px]">Code 6YU: Drive belt
-                                    tension low.
-                                    Adjust tensioner on motor frame to 45 lbs...</p>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Statistics/Ticker -->
-    <div class="border-y border-white/10 bg-industrial-800 py-6 overflow-hidden flex whitespace-nowrap">
-        <div
-            class="animate-[slide_30s_linear_infinite] flex gap-16 font-display uppercase font-bold text-gray-500 tracking-widest">
-            <span>// 99.9% Uptime Analytics</span>
-            <span>// Integrates with SAP & Oracle</span>
-            <span>// SOC2 Type II Certified</span>
-            <span>// Conveyors & Sorters</span>
-            <span>// AS/RS Systems</span>
-            <span>// AGVs & AMRs</span>
-            <span>// 99.9% Uptime Analytics</span>
-            <span>// Integrates with SAP & Oracle</span>
-            <span>// SOC2 Type II Certified</span>
-            <span>// Conveyors & Sorters</span>
-            <span>// AS/RS Systems</span>
-        </div>
-    </div>
-    <style>
-        @keyframes slide {
-            from {
-                transform: translateX(0);
-            }
-
-            to {
-                transform: translateX(-50%);
-            }
-        }
-    </style>
-
-    <!-- Problem & Solution Section -->
-    <section id="problem-solution" class="py-24 px-6 max-w-7xl mx-auto">
-        <div class="grid md:grid-cols-2 gap-16 items-center">
-            <!-- Problem -->
-            <div class="space-y-8" data-aos="fade-up">
-                <div class="w-16 h-1 bg-red-600"></div>
-                <h2 class="font-display text-4xl text-white uppercase tracking-wide">Operational Reality</h2>
-                <div class="space-y-6">
-                    <div class="flex items-start gap-4">
-                        <div class="mt-1 text-red-500 font-bold font-display text-xl">01</div>
-                        <p class="text-gray-400"><strong class="text-white block mb-1">The Experience Gap</strong>
-                            Junior techs spend more time hunting through disjointed OEM PDFs for obscure diagnostic
-                            codes than actually turning wrenches. The knowledge lies with retiring senior staff.</p>
-                    </div>
-                    <div class="flex items-start gap-4">
-                        <div class="mt-1 text-red-500 font-bold font-display text-xl">02</div>
-                        <p class="text-gray-400"><strong class="text-white block mb-1">Hardware Lock-In</strong>
-                            Critical documentation is trapped on heavily restricted, company-issued rugged laptops. If a
-                            field tech forgets the device or it loses battery, they are completely stranded on the
-                            floor.</p>
-                    </div>
-                    <div class="flex items-start gap-4">
-                        <div class="mt-1 text-red-500 font-bold font-display text-xl">03</div>
-                        <p class="text-gray-400"><strong class="text-white block mb-1">Proprietary IP Risk</strong>
-                            Handing raw, unencrypted equipment PDFs over to employees exposes your organization to
-                            massive intellectual property leaks if they leave to join a competitor.</p>
-                    </div>
-                </div>
-            </div>
-
-            <!-- Solution -->
-            <div class="bg-industrial-800 p-8 border border-white/10 border-l-4 border-l-industrial-yellow relative"
-                data-aos="fade-up" data-aos-delay="200">
                 <div
-                    class="absolute -top-4 -right-4 bg-industrial-900 border border-white/10 text-industrial-yellow font-display text-sm uppercase px-3 py-1">
-                    Secure Enclave</div>
-                <h3 class="font-display text-3xl text-white uppercase mb-6">The Mobile-First AI Solution</h3>
-                <p class="text-gray-400 mb-6 line-clamp-4 hover:line-clamp-none transition-all">
-                    We deploy a sophisticated WebUI protected by 2-wall authentication. Field technicians get instant,
-                    natural-language answers directly on their personal or corporate smartphones. The underlying IP
-                    remains entirely sanitized and never leaves the secure boundaries of your GCP bucket.
+                    class="text-sm font-bold tracking-widest text-gray-500 uppercase flex items-center gap-3 flex-wrap">
+                    <span>Built for MHE service teams</span>
+                    <span class="text-industrial-yellow">•</span>
+                    <span>Mobile-ready</span>
+                    <span class="text-industrial-yellow">•</span>
+                    <span>Company-controlled</span>
+                    <span class="text-industrial-yellow">•</span>
+                    <span>Expandable</span>
+                </div>
+            </div>
+
+            <!-- Right Side UI Mockup (CSS Rendered) -->
+            <div class="relative hidden xl:block" data-aos="fade-left" data-aos-delay="200">
+                <!-- Desktop Mockup -->
+                <div
+                    class="bg-industrial-800 border-2 border-white/10 rounded-xl shadow-[0_20px_50px_rgba(0,0,0,0.5)] w-[105%] overflow-hidden relative z-10">
+                    <div class="h-8 border-b border-white/5 bg-industrial-900 flex items-center px-4 gap-2">
+                        <div class="w-3 h-3 rounded-full bg-red-500"></div>
+                        <div class="w-3 h-3 rounded-full bg-industrial-yellow"></div>
+                        <div class="w-3 h-3 rounded-full bg-green-500"></div>
+                    </div>
+                    <div class="p-6 h-[400px] flex flex-col gap-4 font-mono text-sm">
+                        <!-- User Query -->
+                        <div class="flex gap-4 items-start w-[85%]">
+                            <div
+                                class="w-8 h-8 rounded bg-white/10 flex-shrink-0 flex items-center justify-center text-white">
+                                <i data-lucide="user" class="w-4 h-4"></i>
+                            </div>
+                            <div class="bg-industrial-700 p-3 rounded-r-lg rounded-bl-lg text-gray-300">
+                                Diagnosing error code 32 on a Crown RC5500. Not seeing anything in the standard log.
+                            </div>
+                        </div>
+                        <!-- Copilot Answer -->
+                        <div class="flex gap-4 items-start w-[90%] self-end flex-row-reverse">
+                            <div
+                                class="w-8 h-8 rounded bg-industrial-red flex-shrink-0 flex items-center justify-center text-white">
+                                <i data-lucide="wrench" class="w-4 h-4"></i>
+                            </div>
+                            <div
+                                class="bg-industrial-red/10 border border-industrial-red/30 p-4 rounded-l-lg rounded-br-lg text-white relative">
+                                <span
+                                    class="bg-industrial-red text-white text-[10px] px-2 py-0.5 rounded font-bold uppercase absolute -top-3 right-4 tracking-wider">Troubleshooting
+                                    Playbook</span>
+                                Code 32 typically indicates a Line Contactor issue.<br><br>
+                                <span class="text-industrial-yellow">Common field fix:</span> Check the tips on the line
+                                contactor specifically for pitting. If pitted, filing usually doesn't hold. Replace the
+                                contactor completely (Part #105932).<br>
+                                <span class="text-gray-400 mt-2 block text-xs">Source: Senior Tech Notes - Dave M. (Nov
+                                    2025)</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Overlapping Mobile Mockup -->
+                <div
+                    class="absolute -bottom-12 -left-12 bg-industrial-900 border-4 border-industrial-700 rounded-[2rem] shadow-2xl w-64 h-[420px] overflow-hidden z-20 flex flex-col">
+                    <div class="h-6 w-1/2 bg-industrial-700 mx-auto rounded-b-xl mb-4"></div>
+                    <div class="px-4 flex-1">
+                        <div class="text-center mb-4">
+                            <span
+                                class="text-[10px] uppercase tracking-widest text-industrial-yellow font-bold">Generated
+                                Report</span>
+                            <div class="text-white font-bold leading-tight">Work Order #7842</div>
+                        </div>
+                        <div class="space-y-3">
+                            <div class="bg-industrial-800 p-3 rounded-lg border border-white/5">
+                                <div class="text-[10px] text-gray-400 mb-1">Issue Overview</div>
+                                <div class="text-xs text-white">Drive wheel locked up, steering motor fault.</div>
+                            </div>
+                            <div
+                                class="bg-industrial-800 p-3 rounded-lg border border-white/5 border-l-2 border-l-industrial-red">
+                                <div class="text-[10px] text-gray-400 mb-1">Parts Issued</div>
+                                <div class="text-xs text-white flex justify-between">
+                                    <span>Steering Sensor</span>
+                                    <span class="font-mono">#49-2A</span>
+                                </div>
+                            </div>
+                            <div class="bg-industrial-800 p-3 rounded-lg border border-white/5 text-center mt-2">
+                                <div
+                                    class="bg-industrial-red py-2 text-white text-xs font-bold uppercase tracking-wide rounded">
+                                    Submit to ERP</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Section 2: MORE THAN A BETTER PDF SEARCH -->
+    <section class="py-24 px-6 max-w-7xl mx-auto border-t border-white/5">
+        <div class="text-center max-w-3xl mx-auto mb-16" data-aos="fade-up">
+            <h2 class="font-display text-4xl text-white uppercase tracking-wide mb-6">More Than a Better PDF Search</h2>
+            <p class="text-lg text-gray-400">MHE Copilot does not just retrieve manual text. It organizes different
+                types of service knowledge and returns the right kind of answer for the job.</p>
+        </div>
+
+        <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6 mb-12">
+            <!-- Cards -->
+            <div data-aos="fade-up" data-aos-delay="0"
+                class="bg-industrial-800 border-l-4 border-industrial-yellow p-6 shadow-lg hover:-translate-y-1 transition-transform">
+                <i data-lucide="book" class="w-8 h-8 text-industrial-yellow mb-4"></i>
+                <h3 class="font-display font-bold text-white text-xl uppercase mb-2">OEM Manuals</h3>
+                <p class="text-gray-400 text-sm">Fault codes, specs, procedures, and service references indexed
+                    instantly.</p>
+            </div>
+            <div data-aos="fade-up" data-aos-delay="100"
+                class="bg-industrial-800 border-l-4 border-industrial-orange p-6 shadow-lg hover:-translate-y-1 transition-transform">
+                <i data-lucide="clipboard-list" class="w-8 h-8 text-industrial-orange mb-4"></i>
+                <h3 class="font-display font-bold text-white text-xl uppercase mb-2">Internal SOPs</h3>
+                <p class="text-gray-400 text-sm">Company workflows, safety processes, and rigorous inspection standards.
                 </p>
-                <ul class="space-y-3 font-medium text-white">
-                    <li class="flex items-center gap-3">
-                        <svg class="w-5 h-5 text-industrial-yellow" fill="none" stroke="currentColor"
-                            viewBox="0 0 24 24">
-                            <path stroke-linecap="square" stroke-linejoin="miter" stroke-width="2" d="M5 13l4 4L19 7">
-                            </path>
-                        </svg>
-                        Instant querying from any browser
-                    </li>
-                    <li class="flex items-center gap-3">
-                        <svg class="w-5 h-5 text-industrial-yellow" fill="none" stroke="currentColor"
-                            viewBox="0 0 24 24">
-                            <path stroke-linecap="square" stroke-linejoin="miter" stroke-width="2" d="M5 13l4 4L19 7">
-                            </path>
-                        </svg>
-                        Zero data exfiltration risk
-                    </li>
-                    <li class="flex items-center gap-3">
-                        <svg class="w-5 h-5 text-industrial-yellow" fill="none" stroke="currentColor"
-                            viewBox="0 0 24 24">
-                            <path stroke-linecap="square" stroke-linejoin="miter" stroke-width="2" d="M5 13l4 4L19 7">
-                            </path>
-                        </svg>
-                        2-Wall authentication enforcement
-                    </li>
+            </div>
+            <div data-aos="fade-up" data-aos-delay="200"
+                class="bg-industrial-800 border-l-4 border-industrial-red p-6 shadow-lg hover:-translate-y-1 transition-transform">
+                <i data-lucide="users" class="w-8 h-8 text-industrial-red mb-4"></i>
+                <h3 class="font-display font-bold text-white text-xl uppercase mb-2">Senior Tech Notes</h3>
+                <p class="text-gray-400 text-sm">Field fixes, known issues, tribal knowledge, and hard-won lessons.</p>
+            </div>
+            <div data-aos="fade-up" data-aos-delay="300"
+                class="bg-industrial-800 border-l-4 border-white/20 p-6 shadow-lg hover:-translate-y-1 transition-transform">
+                <i data-lucide="graduation-cap" class="w-8 h-8 text-white mb-4"></i>
+                <h3 class="font-display font-bold text-white text-xl uppercase mb-2">Training Content</h3>
+                <p class="text-gray-400 text-sm">Onboarding guides, class notes, and internal quality standards.</p>
+            </div>
+            <div data-aos="fade-up" data-aos-delay="400"
+                class="bg-industrial-800 border-l-4 border-blue-500 p-6 shadow-lg hover:-translate-y-1 transition-transform">
+                <i data-lucide="activity" class="w-8 h-8 text-blue-500 mb-4"></i>
+                <h3 class="font-display font-bold text-white text-xl uppercase mb-2">Troubleshooting Playbooks</h3>
+                <p class="text-gray-400 text-sm">Known symptoms, likely causes, and clear next-step guidance.</p>
+            </div>
+            <div data-aos="fade-up" data-aos-delay="500"
+                class="bg-industrial-800 border-l-4 border-green-500 p-6 shadow-lg hover:-translate-y-1 transition-transform bg-[radial-gradient(circle_at_bottom_right,_rgba(16,185,129,0.1),_transparent)]">
+                <i data-lucide="plus-circle" class="w-8 h-8 text-green-500 mb-4"></i>
+                <h3 class="font-display font-bold text-white text-xl uppercase mb-2">Future Modules</h3>
+                <p class="text-gray-400 text-sm">Add parts assistance, PM workflows, forms, or custom tools later.</p>
+            </div>
+        </div>
+
+    </section>
+
+    <!-- Section 3: WHY SERVICE ORGANIZATIONS ACTUALLY NEED THIS -->
+    <section class="py-24 px-6 bg-industrial-800 border-y border-white/5">
+        <div class="max-w-7xl mx-auto">
+            <h2 class="font-display text-4xl text-white uppercase tracking-wide mb-16 text-center" data-aos="fade-up">
+                Why Service Organizations Actually Need This</h2>
+            <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <!-- 1 -->
+                <div class="space-y-4" data-aos="fade-up" data-aos-delay="0">
+                    <div class="w-12 h-1 bg-industrial-red"></div>
+                    <h3 class="font-bold text-white text-lg font-display uppercase">Centralize scattered knowledge</h3>
+                    <p class="text-gray-400 text-sm leading-relaxed">Bring manuals, SOPs, field notes, and training
+                        content into one communicative system instead of managing disjointed drives.</p>
+                </div>
+                <!-- 2 -->
+                <div class="space-y-4" data-aos="fade-up" data-aos-delay="100">
+                    <div class="w-12 h-1 bg-industrial-red"></div>
+                    <h3 class="font-bold text-white text-lg font-display uppercase">Keep knowledge inside the company
+                    </h3>
+                    <p class="text-gray-400 text-sm leading-relaxed">When someone leaves, defects, or retires, the
+                        hard-earned know-how should stay with the business.</p>
+                </div>
+                <!-- 3 -->
+                <div class="space-y-4" data-aos="fade-up" data-aos-delay="200">
+                    <div class="w-12 h-1 bg-industrial-red"></div>
+                    <h3 class="font-bold text-white text-lg font-display uppercase">Deploy new hires sooner</h3>
+                    <p class="text-gray-400 text-sm leading-relaxed">Give newer technicians access to approved
+                        procedures and real-world guidance without bottlenecking on one senior tech.</p>
+                </div>
+                <!-- 4 -->
+                <div class="space-y-4" data-aos="fade-up" data-aos-delay="300">
+                    <div class="w-12 h-1 bg-industrial-red"></div>
+                    <h3 class="font-bold text-white text-lg font-display uppercase">Make service knowledge usable in the
+                        field</h3>
+                    <p class="text-gray-400 text-sm leading-relaxed">Stop forcing technicians to pinch, zoom, and dig
+                        through confusing 500-page PDFs on a mobile phone.</p>
+                </div>
+                <!-- 5 -->
+                <div class="space-y-4" data-aos="fade-up" data-aos-delay="400">
+                    <div class="w-12 h-1 bg-industrial-red"></div>
+                    <h3 class="font-bold text-white text-lg font-display uppercase">Avoid overpaying for unused features
+                    </h3>
+                    <p class="text-gray-400 text-sm leading-relaxed">Focus on the workflows technicians actually use on
+                        the warehouse floor, not generalized feature lists built for software demos.</p>
+                </div>
+                <!-- 6 -->
+                <div class="space-y-4" data-aos="fade-up" data-aos-delay="500">
+                    <div class="w-12 h-1 bg-industrial-red"></div>
+                    <h3 class="font-bold text-white text-lg font-display uppercase">Expand only when it makes sense</h3>
+                    <p class="text-gray-400 text-sm leading-relaxed">Start with what solves today's problems
+                        immediately, then add capabilities only when they create real business value.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Section 4: WHO IT’S FOR -->
+    <section class="py-24 px-6 max-w-7xl mx-auto">
+        <div class="text-center mb-16" data-aos="fade-up">
+            <h2 class="font-display text-4xl text-white uppercase tracking-wide">Built for the People Who Buy the
+                Outcome<br><span class="text-industrial-yellow">and the People Who Have to Use It</span></h2>
+        </div>
+        <div class="grid md:grid-cols-2 gap-12">
+            <!-- For Service Leaders -->
+            <div class="bg-industrial-900 border border-white/10 p-10 relative overflow-hidden" data-aos="fade-right">
+                <div class="absolute top-0 left-0 w-2 h-full bg-industrial-yellow"></div>
+                <h3 class="font-display text-2xl text-white uppercase mb-6 flex items-center gap-3">
+                    <i data-lucide="briefcase" class="text-industrial-yellow"></i> For Service Leaders
+                </h3>
+                <ul class="space-y-3 mb-8 text-gray-300 font-medium font-mono text-sm">
+                    <li class="flex items-center gap-3"><i data-lucide="check"
+                            class="text-industrial-yellow w-4 h-4"></i> Service managers</li>
+                    <li class="flex items-center gap-3"><i data-lucide="check"
+                            class="text-industrial-yellow w-4 h-4"></i> Tech leads</li>
+                    <li class="flex items-center gap-3"><i data-lucide="check"
+                            class="text-industrial-yellow w-4 h-4"></i> Training managers</li>
+                    <li class="flex items-center gap-3"><i data-lucide="check"
+                            class="text-industrial-yellow w-4 h-4"></i> MHE dealership service departments</li>
+                    <li class="flex items-center gap-3"><i data-lucide="check"
+                            class="text-industrial-yellow w-4 h-4"></i> Internal maintenance teams</li>
+                    <li class="flex items-center gap-3"><i data-lucide="check"
+                            class="text-industrial-yellow w-4 h-4"></i> Field service organizations</li>
                 </ul>
+                <div class="bg-industrial-800 p-4 border border-white/5 text-sm text-gray-400 italic">
+                    "Reduce dependence on a few senior technicians, standardize access to knowledge, protect internal
+                    know-how, and speed up technician ramp-up."
+                </div>
+            </div>
+            <!-- For Technicians -->
+            <div class="bg-industrial-900 border border-white/10 p-10 relative overflow-hidden" data-aos="fade-left">
+                <div class="absolute top-0 left-0 w-2 h-full bg-industrial-red"></div>
+                <h3 class="font-display text-2xl text-white uppercase mb-6 flex items-center gap-3">
+                    <i data-lucide="wrench" class="text-industrial-red"></i> For Technicians
+                </h3>
+                <ul class="space-y-3 mb-8 text-gray-300 font-medium font-mono text-sm">
+                    <li class="flex items-center gap-3"><i data-lucide="check" class="text-industrial-red w-4 h-4"></i>
+                        Faster access to diagnostic guidance</li>
+                    <li class="flex items-center gap-3"><i data-lucide="check" class="text-industrial-red w-4 h-4"></i>
+                        SOPs in a usable format</li>
+                    <li class="flex items-center gap-3"><i data-lucide="check" class="text-industrial-red w-4 h-4"></i>
+                        Field notes that actually help</li>
+                    <li class="flex items-center gap-3"><i data-lucide="check" class="text-industrial-red w-4 h-4"></i>
+                        Fewer dead ends on mobile</li>
+                    <li class="flex items-center gap-3"><i data-lucide="check" class="text-industrial-red w-4 h-4"></i>
+                        Simple workflows without software bloat</li>
+                </ul>
+                <div class="bg-industrial-800 p-4 border border-white/5 text-sm text-gray-400 italic">
+                    "Designed for real field use, not software demos."
+                </div>
             </div>
         </div>
     </section>
 
-    <!-- Features Grid -->
-    <section id="features" class="py-24 px-6 bg-industrial-800 border-y border-white/5 relative overflow-hidden">
+    <!-- Section 5: SEE HOW IT HANDLES REAL TECHNICIAN WORK -->
+    <section id="usecases" class="py-24 px-6 bg-industrial-800 border-y border-white/5">
+        <div class="max-w-7xl mx-auto">
+            <h2 class="font-display text-4xl text-white uppercase tracking-wide mb-12 text-center" data-aos="fade-up">
+                See How It Handles Real Technician Work</h2>
+
+            <div class="flex flex-col lg:flex-row gap-8" data-aos="fade-up">
+                <!-- Tabs Sidebar -->
+                <div class="lg:w-1/3 flex flex-col gap-2 relative">
+                    <button
+                        class="tab-btn w-full text-left px-6 py-4 font-display uppercase tracking-wide text-white bg-industrial-yellow/10 border border-industrial-yellow transition-all"
+                        onclick="changeTab(1, this)">1. Diagnostic Support</button>
+                    <button
+                        class="tab-btn w-full text-left px-6 py-4 font-display uppercase tracking-wide text-gray-400 border border-white/10 hover:border-white/30 transition-all"
+                        onclick="changeTab(2, this)">2. SOP Access</button>
+                    <button
+                        class="tab-btn w-full text-left px-6 py-4 font-display uppercase tracking-wide text-gray-400 border border-white/10 hover:border-white/30 transition-all"
+                        onclick="changeTab(3, this)">3. Senior Knowledge Capture</button>
+                    <button
+                        class="tab-btn w-full text-left px-6 py-4 font-display uppercase tracking-wide text-gray-400 border border-white/10 hover:border-white/30 transition-all"
+                        onclick="changeTab(4, this)">4. New Hire Support</button>
+                    <button
+                        class="tab-btn w-full text-left px-6 py-4 font-display uppercase tracking-wide text-gray-400 border border-white/10 hover:border-white/30 transition-all"
+                        onclick="changeTab(5, this)">5. Automated Work Order Synthesis</button>
+                </div>
+
+                <!-- Tab Contents (CSS UI Mockups) -->
+                <div
+                    class="lg:w-2/3 bg-industrial-900 border border-white/10 p-6 md:p-8 rounded-lg shadow-2xl relative min-h-[400px]">
+                    <!-- Tab 1 -->
+                    <div id="tab-1" class="tab-content animate-[fadeIn_0.3s_ease]">
+                        <div
+                            class="bg-industrial-800 p-4 border border-white/5 rounded text-gray-300 font-mono text-sm inline-block mb-6 shadow-inner">
+                            <span class="text-industrial-yellow">Tech:</span> "How do I calibrate the steer sensor on an
+                            ETV 214?"
+                        </div>
+                        <div
+                            class="border-l-4 border-industrial-red bg-industrial-800/50 p-6 rounded-r-lg shadow-lg relative">
+                            <span
+                                class="absolute top-2 right-4 bg-gray-700 text-white text-[10px] uppercase font-bold px-2 py-1 rounded">OEM
+                                Manual: Jungheinrich ETV 214</span>
+                            <div class="font-bold text-white mb-2 uppercase tracking-wide font-display mt-4 text-lg">
+                                Steer Sensor Calibration</div>
+                            <ol class="list-decimal list-inside space-y-2 text-sm text-gray-400">
+                                <li>Ensure wheels are perfectly straight mechanically.</li>
+                                <li>Connect handset and navigate to Menu 4.2.</li>
+                                <li>Select 'Steer Angle Zero'.</li>
+                                <li>Store value. Value should read between 2.4V and 2.6V.</li>
+                            </ol>
+                        </div>
+                    </div>
+
+                    <!-- Tab 2 -->
+                    <div id="tab-2" class="tab-content hidden animate-[fadeIn_0.3s_ease]">
+                        <div
+                            class="bg-industrial-800 p-4 border border-white/5 rounded text-gray-300 font-mono text-sm inline-block mb-6 shadow-inner">
+                            <span class="text-industrial-yellow">Tech:</span> "What's the lock-out tag-out procedure for
+                            the sorter section?"
+                        </div>
+                        <div
+                            class="border-l-4 border-industrial-orange bg-industrial-800/50 p-6 rounded-r-lg shadow-lg relative">
+                            <span
+                                class="absolute top-2 right-4 bg-gray-700 text-white text-[10px] uppercase font-bold px-2 py-1 rounded">Internal
+                                SOP: Safety 101</span>
+                            <div class="font-bold text-white mb-2 uppercase tracking-wide font-display mt-4 text-lg">
+                                Sorter LOTO Protocol</div>
+                            <p class="text-sm text-gray-400 mb-2">Before servicing sorter belt motors:</p>
+                            <ul class="list-disc list-inside space-y-2 text-sm text-gray-400">
+                                <li>Engage main disconnect switch at MCC panel 4.</li>
+                                <li>Apply personal lock and tag.</li>
+                                <li>Verify zero energy state using multi-meter on load side.</li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <!-- Tab 3 -->
+                    <div id="tab-3" class="tab-content hidden animate-[fadeIn_0.3s_ease]">
+                        <div
+                            class="bg-industrial-800 p-4 border border-white/5 rounded text-gray-300 font-mono text-sm inline-block mb-6 shadow-inner">
+                            <span class="text-industrial-yellow">Tech:</span> "Getting intermittent loss of traction on
+                            wet floors but treads are good."
+                        </div>
+                        <div
+                            class="border-l-4 border-blue-500 bg-industrial-800/50 p-6 rounded-r-lg shadow-lg relative">
+                            <span
+                                class="absolute top-2 right-4 bg-blue-900 border border-blue-500 text-blue-200 text-[10px] uppercase font-bold px-2 py-1 rounded flex items-center gap-1"><i
+                                    data-lucide="check-circle" class="w-3 h-3"></i> Senior Knowledge</span>
+                            <div class="font-bold text-white mb-2 uppercase tracking-wide font-display mt-4 text-lg">
+                                Field Fix Noted</div>
+                            <p class="text-sm text-gray-400">
+                                <strong class="text-white">Note from Mike R. (Lead Tech):</strong><br>
+                                If treads are verified good, check the traction motor encoder cable shielding. On wet
+                                floors, splash can cause erratic encoder signals if the shielding is worn near the
+                                bracket. Zip-tie the cable higher up and clear of the splash guard. This has fixed 4
+                                recent tickets immediately.
+                            </p>
+                        </div>
+                    </div>
+
+                    <!-- Tab 4 -->
+                    <div id="tab-4" class="tab-content hidden animate-[fadeIn_0.3s_ease]">
+                        <div
+                            class="bg-industrial-800 p-4 border border-white/5 rounded text-gray-300 font-mono text-sm inline-block mb-6 shadow-inner">
+                            <span class="text-industrial-yellow">Tech (New Hire):</span> "Where is the hydraulic filter
+                            on a Raymond 7720?"
+                        </div>
+                        <div
+                            class="border-l-4 border-green-500 bg-industrial-800/50 p-6 rounded-r-lg shadow-lg relative">
+                            <span
+                                class="absolute top-2 right-4 bg-gray-700 text-white text-[10px] uppercase font-bold px-2 py-1 rounded">Training
+                                Module: PM Checklists</span>
+                            <div class="font-bold text-white mb-2 uppercase tracking-wide font-display mt-4 text-lg">
+                                Location Guide</div>
+                            <p class="text-sm text-gray-400">
+                                Open the main compartment cover. The primary hydraulic filter housing is located on the
+                                right side, immediately behind the directional valve block. It has a large hex nut top
+                                (requires a 1-1/4" socket).
+                                <br><br>
+                                <strong class="text-industrial-yellow">Safety Tip:</strong> Relieve line pressure by
+                                cycling mast functions with key OFF before removal.
+                            </p>
+                        </div>
+                    </div>
+
+                    <!-- Tab 5 -->
+                    <div id="tab-5" class="tab-content hidden animate-[fadeIn_0.3s_ease]">
+                        <div
+                            class="bg-industrial-800 p-4 border border-white/5 rounded text-gray-300 font-mono text-sm inline-block mb-6 shadow-inner w-full">
+                            <span class="text-industrial-yellow block mb-2">Tech raw input via Voice/Text:</span>
+                            <em class="text-gray-500">"Went to look at forklift 4. Wouldn't move. Found bad contactor.
+                                Changed part 455-A. Tested operations and it works fine now. Took 2 hours."</em>
+                        </div>
+                        <div class="border border-white/10 bg-industrial-900 p-6 rounded-lg shadow-lg">
+                            <div class="flex justify-between items-center mb-4 pb-2 border-b border-white/10">
+                                <span class="text-white font-display uppercase tracking-wide">Automated Work
+                                    Order</span>
+                                <span
+                                    class="bg-industrial-red text-white text-[10px] uppercase px-2 py-1 font-bold">Ready</span>
+                            </div>
+                            <div class="grid grid-cols-2 gap-4 text-xs font-mono text-gray-400 mb-4">
+                                <div><strong class="text-gray-300 uppercase">Unit:</strong> Forklift 4</div>
+                                <div><strong class="text-gray-300 uppercase">Labor:</strong> 2.0 Hours</div>
+                                <div class="col-span-2"><strong class="text-gray-300 uppercase">Complaint:</strong> No
+                                    Travel / Will not move.</div>
+                                <div class="col-span-2"><strong class="text-gray-300 uppercase">Cause:</strong>
+                                    Defective main line contactor.</div>
+                                <div class="col-span-2"><strong class="text-gray-300 uppercase">Correction:</strong>
+                                    Replaced main contactor (Part #455-A). Verified proper travel operation.</div>
+                            </div>
+                            <button
+                                class="w-full bg-industrial-800 hover:bg-white hover:text-black border border-white text-white py-2 uppercase tracking-wi text-xs transition-colors">Submit
+                                to ERP</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <script>
+        function changeTab(index, element) {
+            document.querySelectorAll('.tab-content').forEach(el => el.classList.add('hidden'));
+            document.getElementById('tab-' + index).classList.remove('hidden');
+            document.querySelectorAll('.tab-btn').forEach(el => {
+                el.classList.remove('border-industrial-yellow', 'bg-industrial-yellow/10', 'text-white');
+                el.classList.add('border-white/10', 'text-gray-400');
+            });
+            element.classList.add('border-industrial-yellow', 'bg-industrial-yellow/10', 'text-white');
+            element.classList.remove('border-white/10', 'text-gray-400');
+        }
+    </script>
+
+    <!-- Section 6: BUILT FOR WHAT TECHNICIANS WILL ACTUALLY USE -->
+    <section id="how" class="py-24 px-6 max-w-4xl mx-auto text-center">
+        <h2 class="font-display text-4xl text-white uppercase tracking-wide mb-6" data-aos="fade-up">Built for What
+            Technicians Will Actually Use</h2>
+        <p class="text-lg text-gray-400 mb-12" data-aos="fade-up">A lot of service software is bought on feature lists
+            and ignored in the field. MHE Copilot is designed around the handful of workflows technicians return to
+            every day: diagnostics, procedures, troubleshooting, and usable field knowledge.</p>
+
+        <div class="bg-industrial-900 border border-white/10 p-8 inline-block text-left" data-aos="zoom-in">
+            <ul class="space-y-6">
+                <li class="flex items-start gap-4">
+                    <i data-lucide="check-square" class="text-industrial-yellow w-6 h-6 flex-shrink-0"></i>
+                    <div>
+                        <strong class="text-white block font-display uppercase tracking-wide">Simple interface</strong>
+                        <span class="text-sm text-gray-500">No complex menus or confusing navigation trees. Just ask and
+                            get answers.</span>
+                    </div>
+                </li>
+                <li class="flex items-start gap-4">
+                    <i data-lucide="check-square" class="text-industrial-yellow w-6 h-6 flex-shrink-0"></i>
+                    <div>
+                        <strong class="text-white block font-display uppercase tracking-wide">Minimal clicks</strong>
+                        <span class="text-sm text-gray-500">Get to the required diagnostic or spec sheet as instantly as
+                            possible.</span>
+                    </div>
+                </li>
+                <li class="flex items-start gap-4">
+                    <i data-lucide="check-square" class="text-industrial-yellow w-6 h-6 flex-shrink-0"></i>
+                    <div>
+                        <strong class="text-white block font-display uppercase tracking-wide">Mobile-first
+                            readability</strong>
+                        <span class="text-sm text-gray-500">High contrast, large fonts, no pinching and zooming on
+                            greasy screens.</span>
+                    </div>
+                </li>
+                <li class="flex items-start gap-4">
+                    <i data-lucide="check-square" class="text-industrial-yellow w-6 h-6 flex-shrink-0"></i>
+                    <div>
+                        <strong class="text-white block font-display uppercase tracking-wide">Focused functionality over
+                            feature bloat</strong>
+                        <span class="text-sm text-gray-500">We don't sell features just to look good in demos; we sell
+                            field efficiency.</span>
+                    </div>
+                </li>
+                <li class="flex items-start gap-4">
+                    <i data-lucide="check-square" class="text-industrial-yellow w-6 h-6 flex-shrink-0"></i>
+                    <div>
+                        <strong class="text-white block font-display uppercase tracking-wide">Strict formatting
+                            paradigm</strong>
+                        <span class="text-sm text-gray-500">Data is returned clean, standardized, and immediately
+                            recognizable.</span>
+                    </div>
+                </li>
+            </ul>
+        </div>
+    </section>
+
+    <!-- Section 7: START FOCUSED. EXPAND ON YOUR TERMS. -->
+    <section class="py-24 px-6 bg-industrial-800 border-y border-white/5">
+        <div class="max-w-7xl mx-auto text-center">
+            <h2 class="font-display text-4xl text-white uppercase tracking-wide mb-6" data-aos="fade-up">Start Focused.
+                Expand on Your Terms.</h2>
+            <p class="text-lg text-gray-400 mb-12 max-w-3xl mx-auto" data-aos="fade-up">Begin with manuals, SOPs, and
+                technician knowledge. Add new capabilities later—parts support, PM workflows, service forms, ticket
+                summaries, training modules, and more—without paying for a bloated stack on day one.</p>
+
+            <div class="flex flex-wrap justify-center gap-4" data-aos="fade-up">
+                <!-- Chips -->
+                <div
+                    class="bg-industrial-900 border border-white/20 px-6 py-3 rounded-full text-white font-mono text-sm uppercase tracking-wide flex items-center gap-2 hover:border-industrial-yellow transition-colors cursor-default">
+                    <i data-lucide="tool" class="w-4 h-4 text-gray-500"></i> Parts guidance
+                </div>
+                <div
+                    class="bg-industrial-900 border border-white/20 px-6 py-3 rounded-full text-white font-mono text-sm uppercase tracking-wide flex items-center gap-2 hover:border-industrial-yellow transition-colors cursor-default">
+                    <i data-lucide="calendar" class="w-4 h-4 text-gray-500"></i> PM procedures
+                </div>
+                <div
+                    class="bg-industrial-900 border border-white/20 px-6 py-3 rounded-full text-white font-mono text-sm uppercase tracking-wide flex items-center gap-2 hover:border-industrial-yellow transition-colors cursor-default">
+                    <i data-lucide="shield" class="w-4 h-4 text-gray-500"></i> Safety workflows
+                </div>
+                <div
+                    class="bg-industrial-900 border border-white/20 px-6 py-3 rounded-full text-white font-mono text-sm uppercase tracking-wide flex items-center gap-2 hover:border-industrial-yellow transition-colors cursor-default">
+                    <i data-lucide="file-text" class="w-4 h-4 text-gray-500"></i> Forms & checklists
+                </div>
+                <div
+                    class="bg-industrial-900 border border-white/20 px-6 py-3 rounded-full text-white font-mono text-sm uppercase tracking-wide flex items-center gap-2 hover:border-industrial-yellow transition-colors cursor-default">
+                    <i data-lucide="video" class="w-4 h-4 text-gray-500"></i> Training modules
+                </div>
+                <div
+                    class="bg-industrial-red/10 border border-industrial-red px-6 py-3 rounded-full text-white font-mono text-sm uppercase tracking-wide flex items-center gap-2 shadow-[0_0_15px_rgba(227,24,55,0.3)] cursor-default">
+                    <i data-lucide="settings" class="w-4 h-4 text-industrial-red animate-spin-slow"></i> Custom company
+                    workflows
+                </div>
+            </div>
+            <style>
+                .animate-spin-slow {
+                    animation: spin 8s linear infinite;
+                }
+            </style>
+        </div>
+    </section>
+
+    <!-- Section 8: BUILT FROM THE FLOOR, NOT THE BOARDROOM -->
+    <section class="py-24 px-6 relative overflow-hidden">
+        <div class="max-w-4xl mx-auto text-center relative z-10" data-aos="fade-up">
+            <h2 class="font-display text-4xl text-white uppercase tracking-widest mb-6">Built From the Floor, <span
+                    class="text-industrial-red">Not the Boardroom</span></h2>
+            <div class="w-24 h-1 bg-industrial-yellow mx-auto mb-8"></div>
+            <p class="text-xl text-gray-300 font-medium leading-relaxed">
+                MHE Copilot was shaped by direct field experience—by someone who understands where technicians lose
+                time, what they actually need on a job, and which software features look impressive in a demo but go
+                completely unused in the field.
+            </p>
+        </div>
+    </section>
+
+    <!-- Section 9: FAQ SECTION -->
+    <section class="py-24 px-6 bg-industrial-800 border-t border-white/5">
+        <div class="max-w-3xl mx-auto">
+            <h2 class="font-display text-3xl text-white uppercase tracking-wide mb-10 text-center">Frequently Asked
+                Questions</h2>
+            <div class="space-y-4">
+                <details class="group bg-industrial-900 border border-white/10 p-6 rounded" open>
+                    <summary
+                        class="flex justify-between items-center font-display text-white text-lg uppercase cursor-pointer list-none">
+                        Is this just a manual chatbot?
+                        <i data-lucide="chevron-down"
+                            class="w-5 h-5 text-industrial-yellow group-open:rotate-180 transition-transform"></i>
+                    </summary>
+                    <div class="mt-4 text-gray-400 text-sm leading-relaxed border-t border-white/10 pt-4">
+                        No. While it does retrieve manual content perfectly, MHE Copilot integrates SOPs, senior tech
+                        field notes, training materials, and eventually PM forms into structured, intent-aware
+                        workflows.
+                    </div>
+                </details>
+                <details class="group bg-industrial-900 border border-white/10 p-6 rounded">
+                    <summary
+                        class="flex justify-between items-center font-display text-white text-lg uppercase cursor-pointer list-none">
+                        Can it keep different knowledge types separate?
+                        <i data-lucide="chevron-down"
+                            class="w-5 h-5 text-industrial-yellow group-open:rotate-180 transition-transform"></i>
+                    </summary>
+                    <div class="mt-4 text-gray-400 text-sm leading-relaxed border-t border-white/10 pt-4">
+                        Yes. Knowledge silos are strictly managed. An answer regarding an SOP won't hallucinate data
+                        from a diagnostic fault code chart.
+                    </div>
+                </details>
+                <details class="group bg-industrial-900 border border-white/10 p-6 rounded">
+                    <summary
+                        class="flex justify-between items-center font-display text-white text-lg uppercase cursor-pointer list-none">
+                        Can senior technicians update it with their own knowledge?
+                        <i data-lucide="chevron-down"
+                            class="w-5 h-5 text-industrial-yellow group-open:rotate-180 transition-transform"></i>
+                    </summary>
+                    <div class="mt-4 text-gray-400 text-sm leading-relaxed border-t border-white/10 pt-4">
+                        Absolutely. Capturing tribal knowledge is a core function. Experienced technicians can submit
+                        field fixes that become indexed alongside official manuals, flagged as internal knowledge.
+                    </div>
+                </details>
+                <details class="group bg-industrial-900 border border-white/10 p-6 rounded">
+                    <summary
+                        class="flex justify-between items-center font-display text-white text-lg uppercase cursor-pointer list-none">
+                        Does it work for mobile field use?
+                        <i data-lucide="chevron-down"
+                            class="w-5 h-5 text-industrial-yellow group-open:rotate-180 transition-transform"></i>
+                    </summary>
+                    <div class="mt-4 text-gray-400 text-sm leading-relaxed border-t border-white/10 pt-4">
+                        Yes, it is designed mobile-first. Technicians do not need to bring a rugged laptop to every
+                        repair; they can use their phone to retrieve instant instructions.
+                    </div>
+                </details>
+                <details class="group bg-industrial-900 border border-white/10 p-6 rounded">
+                    <summary
+                        class="flex justify-between items-center font-display text-white text-lg uppercase cursor-pointer list-none">
+                        Do we have to buy a bloated feature set?
+                        <i data-lucide="chevron-down"
+                            class="w-5 h-5 text-industrial-yellow group-open:rotate-180 transition-transform"></i>
+                    </summary>
+                    <div class="mt-4 text-gray-400 text-sm leading-relaxed border-t border-white/10 pt-4">
+                        No. You pay only for the knowledge engine today. If you want to expand to custom workflows, you
+                        can do so later on your terms.
+                    </div>
+                </details>
+                <details class="group bg-industrial-900 border border-white/10 p-6 rounded">
+                    <summary
+                        class="flex justify-between items-center font-display text-white text-lg uppercase cursor-pointer list-none">
+                        Can it grow into more than diagnostics?
+                        <i data-lucide="chevron-down"
+                            class="w-5 h-5 text-industrial-yellow group-open:rotate-180 transition-transform"></i>
+                    </summary>
+                    <div class="mt-4 text-gray-400 text-sm leading-relaxed border-t border-white/10 pt-4">
+                        Yes. It is an expandable system. While it starts immediately solving diagnostic pain points, it
+                        can easily digest PM tracking, form routing, and parts catalog interfaces down the road.
+                    </div>
+                </details>
+            </div>
+        </div>
+    </section>
+
+    <!-- Section 10: FINAL CTA -->
+    <section id="demo" class="py-32 px-6 bg-grid-pattern relative">
+        <div class="absolute inset-0 bg-industrial-900/80"></div>
         <div
-            class="absolute top-0 right-0 w-[800px] h-[800px] bg-industrial-yellow/5 rounded-full blur-[100px] -translate-y-1/2 translate-x-1/3">
+            class="absolute inset-x-0 bottom-0 h-px bg-gradient-to-r from-transparent via-industrial-yellow to-transparent">
         </div>
-        <div class="max-w-7xl mx-auto relative z-10">
-            <div class="mb-16">
-                <h2 class="font-display text-4xl md:text-5xl text-white uppercase tracking-wide mb-4">The Integration
-                    Process</h2>
-                <p class="text-gray-400 max-w-2xl text-lg">Industrial-grade AI capabilities designed specifically for
-                    the rigorous demands of supply chain environments.</p>
-            </div>
-
-            <div class="grid md:grid-cols-3 gap-6">
-                <!-- Feature 1 -->
-                <div data-aos="fade-up" data-aos-delay="0"
-                    class="bg-industrial-900 border border-white/5 p-8 hover:border-industrial-yellow/50 transition-colors group relative">
-                    <div
-                        class="absolute top-6 right-6 font-display text-4xl font-bold text-industrial-yellow opacity-30 group-hover:opacity-100 transition-opacity">
-                        01</div>
-                    <div
-                        class="w-12 h-12 bg-white/5 rounded flex items-center justify-center mb-6 group-hover:bg-industrial-yellow/10 transition-colors">
-                        <i data-lucide="shield-check" class="w-6 h-6 text-industrial-yellow"></i>
-                    </div>
-                    <h3 class="text-xl text-white font-bold mb-3 uppercase font-display tracking-wide">Secure Your Data
-                    </h3>
-                    <p class="text-gray-500 text-sm leading-relaxed pr-8">
-                        Every client is provisioned a completely dedicated Google Cloud bucket and vector data store. We
-                        guarantee complete isolation of your proprietary schematics.
-                    </p>
-                </div>
-                <!-- Feature 2 -->
-                <div data-aos="fade-up" data-aos-delay="100"
-                    class="bg-industrial-900 border border-white/5 p-8 hover:border-industrial-yellow/50 transition-colors group relative">
-                    <div
-                        class="absolute top-6 right-6 font-display text-4xl font-bold text-industrial-yellow opacity-30 group-hover:opacity-100 transition-opacity">
-                        02</div>
-                    <div
-                        class="w-12 h-12 bg-white/5 rounded flex items-center justify-center mb-6 group-hover:bg-industrial-yellow/10 transition-colors">
-                        <i data-lucide="scan-text" class="w-6 h-6 text-industrial-yellow"></i>
-                    </div>
-                    <h3 class="text-xl text-white font-bold mb-3 uppercase font-display tracking-wide">Ingest The
-                        Manuals</h3>
-                    <p class="text-gray-500 text-sm leading-relaxed pr-8">
-                        We process existing OEM PDFs, handwritten repair logs, and notes from senior technicians to
-                        capture all operational knowledge.
-                    </p>
-                </div>
-                <!-- Feature 3 -->
-                <div data-aos="fade-up" data-aos-delay="200"
-                    class="bg-industrial-900 border border-white/5 p-8 hover:border-industrial-yellow/50 transition-colors group relative">
-                    <div
-                        class="absolute top-6 right-6 font-display text-4xl font-bold text-industrial-yellow opacity-30 group-hover:opacity-100 transition-opacity">
-                        03</div>
-                    <div
-                        class="w-12 h-12 bg-white/5 rounded flex items-center justify-center mb-6 group-hover:bg-industrial-yellow/10 transition-colors">
-                        <i data-lucide="cpu" class="w-6 h-6 text-industrial-yellow"></i>
-                    </div>
-                    <h3 class="text-xl text-white font-bold mb-3 uppercase font-display tracking-wide">Train the AI</h3>
-                    <p class="text-gray-500 text-sm leading-relaxed pr-8">
-                        Data is cleaned, structured, and pre-processed to train the AI retrieval model specifically on
-                        your equipment specs.
-                    </p>
-                </div>
-                <!-- Feature 4 -->
-                <div data-aos="fade-up" data-aos-delay="300"
-                    class="bg-industrial-900 border border-white/5 p-8 hover:border-industrial-yellow/50 transition-colors group relative">
-                    <div
-                        class="absolute top-6 right-6 font-display text-4xl font-bold text-industrial-yellow opacity-30 group-hover:opacity-100 transition-opacity">
-                        04</div>
-                    <div
-                        class="w-12 h-12 bg-white/5 rounded flex items-center justify-center mb-6 group-hover:bg-industrial-yellow/10 transition-colors">
-                        <i data-lucide="activity" class="w-6 h-6 text-industrial-yellow"></i>
-                    </div>
-                    <h3 class="text-xl text-white font-bold mb-3 uppercase font-display tracking-wide">Mobile Deployment
-                    </h3>
-                    <p class="text-gray-500 text-sm leading-relaxed pr-8">
-                        Deploy a secure, 2FA-protected interface to personal or corporate smartphones right on the
-                        warehouse floor.
-                    </p>
-                </div>
-                <!-- Feature 5 -->
-                <div data-aos="fade-up" data-aos-delay="400"
-                    class="bg-industrial-900 border border-white/5 p-8 hover:border-industrial-yellow/50 transition-colors group relative">
-                    <div
-                        class="absolute top-6 right-6 font-display text-4xl font-bold text-industrial-yellow opacity-30 group-hover:opacity-100 transition-opacity">
-                        05</div>
-                    <div
-                        class="w-12 h-12 bg-white/5 rounded flex items-center justify-center mb-6 group-hover:bg-industrial-yellow/10 transition-colors">
-                        <i data-lucide="settings" class="w-6 h-6 text-industrial-yellow"></i>
-                    </div>
-                    <h3 class="text-xl text-white font-bold mb-3 uppercase font-display tracking-wide">Instant
-                        Diagnostics</h3>
-                    <p class="text-gray-500 text-sm leading-relaxed pr-8">
-                        Technicians chat with the smart system to receive contextual, hallucination-free repair guides
-                        and part lists.
-                    </p>
-                </div>
-                <!-- Feature 6 -->
-                <div data-aos="fade-up" data-aos-delay="500"
-                    class="bg-industrial-900 border border-white/5 p-8 hover:border-industrial-yellow/50 transition-colors group relative">
-                    <div
-                        class="absolute top-6 right-6 font-display text-4xl font-bold text-industrial-yellow opacity-30 group-hover:opacity-100 transition-opacity">
-                        06</div>
-                    <div
-                        class="w-12 h-12 bg-white/5 rounded flex items-center justify-center mb-6 group-hover:bg-industrial-yellow/10 transition-colors">
-                        <i data-lucide="git-merge" class="w-6 h-6 text-industrial-yellow"></i>
-                    </div>
-                    <h3 class="text-xl text-white font-bold mb-3 uppercase font-display tracking-wide">Continuous
-                        Learning</h3>
-                    <p class="text-gray-500 text-sm leading-relaxed pr-8">
-                        The AI continuously learns from new diagnostic outputs, improving accuracy and connecting with
-                        your catalog for part reorders.
-                    </p>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Contact / Lead Gen Section -->
-    <section id="contact" class="py-24 px-6 max-w-5xl mx-auto">
-        <div class="bg-industrial-900 border border-white/10 p-1 md:p-2 shadow-2xl">
-            <div class="bg-industrial-800 p-8 md:p-14 border border-white/5">
-                <div class="text-center mb-12">
-                    <h2 class="font-display text-4xl text-white uppercase tracking-wide mb-4">Initialize Deployment
-                        Sequence</h2>
-                    <p class="text-gray-400">Request a capability briefing and technical demo using your own manuals.
-                    </p>
+        <div class="max-w-4xl mx-auto text-center relative z-10">
+            <h2 class="font-display text-5xl md:text-6xl font-bold text-white uppercase tracking-tight mb-6">Keep Your
+                Service Knowledge <span class="text-industrial-red">Inside the Company</span></h2>
+            <p class="text-xl text-gray-400 mb-12 max-w-2xl mx-auto">See how MHE Copilot can centralize manuals, SOPs,
+                and technician knowledge in one system your team will actually use.</p>
+            <div
+                class="bg-industrial-900/80 backdrop-blur-md border border-white/10 p-8 md:p-12 text-left mt-8 max-w-2xl mx-auto shadow-2xl relative">
+                <!-- Top Accent Line -->
+                <div class="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-industrial-red to-industrial-yellow">
                 </div>
 
-                <form class="space-y-6 max-w-2xl mx-auto" action="https://formsubmit.co/sales@mhecopilot.com"
-                    method="POST">
+                <form class="space-y-6" action="https://formsubmit.co/sales@mhecopilot.com" method="POST">
+                    <!-- Hidden Configs -->
                     <input type="hidden" name="_subject" value="New MHE Copilot Demo Request!">
-                    <input type="hidden" name="_next" value="https://mhecopilot.com/thanks.html">
                     <input type="hidden" name="_captcha" value="false">
+
                     <div class="grid md:grid-cols-2 gap-6">
                         <div class="space-y-2">
                             <label class="block text-xs font-bold uppercase tracking-widest text-gray-400">Full
                                 Name</label>
                             <input type="text" name="full_name" required
-                                class="w-full bg-industrial-900 border border-white/10 px-4 py-3 text-white focus:outline-none focus:border-industrial-yellow transition-colors placeholder-gray-700"
+                                class="w-full bg-industrial-800 border border-white/10 px-4 py-3 text-white focus:outline-none focus:border-industrial-yellow transition-colors placeholder-gray-600"
                                 placeholder="John Doe">
                         </div>
                         <div class="space-y-2">
                             <label class="block text-xs font-bold uppercase tracking-widest text-gray-400">Company
                                 Name</label>
                             <input type="text" name="company_name" required
-                                class="w-full bg-industrial-900 border border-white/10 px-4 py-3 text-white focus:outline-none focus:border-industrial-yellow transition-colors placeholder-gray-700"
+                                class="w-full bg-industrial-800 border border-white/10 px-4 py-3 text-white focus:outline-none focus:border-industrial-yellow transition-colors placeholder-gray-600"
                                 placeholder="Logistics Corp">
                         </div>
                     </div>
@@ -422,56 +774,45 @@
                         <label class="block text-xs font-bold uppercase tracking-widest text-gray-400">Work
                             Email</label>
                         <input type="email" name="email" required
-                            class="w-full bg-industrial-900 border border-white/10 px-4 py-3 text-white focus:outline-none focus:border-industrial-yellow transition-colors placeholder-gray-700"
-                            placeholder="john.doe@logistics-corp.com">
+                            class="w-full bg-industrial-800 border border-white/10 px-4 py-3 text-white focus:outline-none focus:border-industrial-yellow transition-colors placeholder-gray-600"
+                            placeholder="john.doe@company.com">
                     </div>
 
                     <div class="space-y-2">
                         <label class="block text-xs font-bold uppercase tracking-widest text-gray-400">Equipment
                             Focus</label>
                         <select name="equipment_focus"
-                            class="w-full bg-industrial-900 border border-white/10 px-4 py-3 text-white focus:outline-none focus:border-industrial-yellow transition-colors appearance-none rounded-none">
+                            class="w-full bg-industrial-800 border border-white/10 px-4 py-3 text-gray-300 focus:outline-none focus:border-industrial-yellow transition-colors appearance-none rounded-none cursor-pointer">
                             <option>Warehouse Robotics (AMR/AGV)</option>
                             <option>Conveyor / Sortation Systems</option>
                             <option>Forklifts & Material Handlers</option>
-                            <option>Packaging Automation</option>
                             <option>Other</option>
                         </select>
                     </div>
 
-                    <div class="pt-4">
+                    <div class="pt-6">
                         <button type="submit"
-                            class="w-full bg-white text-black py-4 font-display font-bold text-xl uppercase tracking-wider hover:bg-industrial-yellow transition-colors shadow-[6px_6px_0px_rgba(255,255,255,0.1)] hover:shadow-none hover:translate-x-[2px] hover:translate-y-[2px]">
-                            Request Access
+                            class="w-full bg-industrial-red text-white py-4 font-display font-bold text-xl uppercase tracking-wider hover:bg-red-700 transition-colors shadow-[6px_6px_0px_#ffffff] hover:shadow-none hover:translate-x-[2px] hover:translate-y-[2px]">
+                            Submit Request
                         </button>
                     </div>
-
-                    <p class="text-center text-xs text-gray-600 uppercase tracking-widest mt-6">
-                        Strictly B2B. We protect your operational IP.
-                    </p>
                 </form>
             </div>
         </div>
     </section>
 
     <!-- Footer -->
-    <footer class="border-t border-white/10 py-12 px-6">
+    <footer class="border-t border-white/10 py-12 px-6 bg-industrial-900">
         <div class="max-w-7xl mx-auto flex flex-col md:flex-row justify-between items-center gap-6">
             <div class="flex items-center gap-3">
                 <div
-                    class="w-6 h-6 bg-industrial-yellow flex items-center justify-center font-display font-bold text-black text-sm">
+                    class="w-6 h-6 bg-industrial-red rounded-sm flex items-center justify-center font-display font-bold text-white text-sm">
                     M</div>
-                <span class="font-display font-bold text-xl tracking-wider text-white uppercase">MHE Copilot</span>
-            </div>
-            <div class="text-sm font-medium text-gray-500">
-                &copy;
-                <script>document.write(new Date().getFullYear())</script> MHE Copilot Logistics Systems. All rights
-                reserved.
+                <span class="font-display font-bold tracking-wider text-gray-500 uppercase text-sm">MHE Copilot Service
+                    Systems</span>
             </div>
             <div class="flex gap-6 text-sm font-medium">
-                <a href="#" class="text-gray-500 hover:text-white transition-colors">Privacy</a>
-                <a href="#" class="text-gray-500 hover:text-white transition-colors">Terms</a>
-                <a href="#" class="text-gray-500 hover:text-white transition-colors">System Status</a>
+                <span class="text-gray-600">Company-controlled. Built for MHE.</span>
             </div>
         </div>
     </footer>
@@ -479,14 +820,11 @@
     <!-- AOS JS & Init -->
     <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
     <script>
-        // Initialize AOS
         AOS.init({
             duration: 800,
             once: true,
             offset: 100,
         });
-
-        // Initialize Lucide Icons
         lucide.createIcons();
     </script>
 </body>
